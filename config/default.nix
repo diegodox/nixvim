@@ -1,3 +1,4 @@
+# nixvimConfigSearch: https://nix-community.github.io/nixvim/search
 {nightly ? false, ...}:
 let
   nightly_module = if nightly then [ ./nightly.nix ] else [];
@@ -14,7 +15,6 @@ in
     ./tokyonight.nix
     ./gitsigns.nix
     ./noice.nix
-    ./whichkey.nix
   ] ++ nightly_module;
 
   wrapRc = true;

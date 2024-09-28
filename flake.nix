@@ -60,6 +60,15 @@
           nvimStable = nixvim'.makeNixvimWithModule nixvimModule;
         in
         {
+          devShells = {
+            devNightly = pkgs.mkShell {
+              packages = [ pkgs.nil pkgs.hello nvimNightly];
+            };
+            devStable = pkgs.mkShell {
+              packages = [ pkgs.nil pkgs.hello nvimStable];
+            };
+          };
+
           checks = {
             # Run `nix flake check .` to verify that your config is not broken
             default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
