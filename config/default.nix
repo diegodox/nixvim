@@ -1,7 +1,11 @@
-{pkgs, ...}: {
-  # run neovim nightly
-  package = pkgs.neovim;
-
+{nightly ? false, ...}:
+let
+  nightly_module = if nightly then [ ./nightly.nix ] else [];
+in
+{
   # Import all your configuration modules here
-  imports = [ ./bufferline.nix ];
+  imports = [
+  ] ++ nightly_module;
+
+  wrapRc = true;
 }

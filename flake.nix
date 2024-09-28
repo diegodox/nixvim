@@ -45,10 +45,13 @@
             module = import ./config; # import the module directly
             # You can use `extraSpecialArgs` to pass additional arguments to your module files
             extraSpecialArgs = {
+              nightly = false;
               # inherit (inputs) foo;
             };
           };
-          nvim = nixvim'.makeNixvimWithModule nixvimModule;
+
+          nvimNightly = nixvim'.makeNixvimWithModule (nixvimModule // { extraSpecialArgs.nightly = true; });
+          nvimStable = nixvim'.makeNixvimWithModule nixvimModule;
         in
         {
           checks = {
@@ -57,8 +60,11 @@
           };
 
           packages = {
+            nightly = nvimNightly;
+            stable = nvimStable;
+
             # Lets you run `nix run .` to start nixvim
-            default = nvim;
+            default = nvimStable;
           };
         };
     };
