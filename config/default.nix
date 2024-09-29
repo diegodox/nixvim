@@ -15,6 +15,8 @@ in
     ./tokyonight.nix
     ./gitsigns.nix
     ./noice.nix
+    ./telescope.nix
+    ./whichkey.nix
   ] ++ nightly_module;
 
   wrapRc = true;
