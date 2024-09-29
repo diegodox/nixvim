@@ -12,6 +12,16 @@ If you add a new configuration file, remember to add it to the
 
 To test your configuration simply run the following command
 
+Run nvim
+```nix
+# run stable nvim
+nix run .#stable
+# run nightly nvim
+nix run .#nightly
 ```
-nix run .
+
+Develop shell with nix/lua lsp and nvim
+```nix
+nix develop .#devStable
+nix develop .#devNightly
 ```

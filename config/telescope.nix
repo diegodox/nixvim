@@ -166,3 +166,10 @@
     }
   ];
 }
+    # # LSP
+    # "<Leader>gd" = {
+    #   action = "lsp_definitions";
+    #   options = {
+    #     desc = "Definitions";
+    #   };
+    # };

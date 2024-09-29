@@ -18,7 +18,14 @@ in
     ./telescope.nix
     ./whichkey.nix
     ./fcitx5nvim.nix
+    ./capture.nix
   ] ++ nightly_module;
+
+  plugins.nvim-colorizer.enable = true;
+  plugins.inc-rename.enable = true;
+  plugins.undotree.enable = true;
+  plugins.markdown-preview.enable = true;
+  plugins.sandwich.enable = true;
 
   wrapRc = true;
 }

@@ -119,5 +119,12 @@ in
   ++ jump-diagnotic
   ++ [ easy-save ]
   ++ resize
-  ++ func;
+  ++ func
+  ++ [
+    {
+      mode = "n";
+      key = "<leader>la";
+      action = "hello";
+    }
+  ];
 }

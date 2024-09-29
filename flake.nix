@@ -44,7 +44,7 @@
         let
           pkgs = import inputs.nixpkgs {
             inherit system;
-            overlays=  [ inputs.neovim-nightly-overlay.overlays.default ];
+            overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
           };
 
           nixvimLib = nixvim.lib.${system};
@@ -65,7 +65,15 @@
         {
           devShells = {
             devNightly = pkgs.mkShell {
-              packages = [ pkgs.nil pkgs.hello nvimNightly];
+              packages = [ pkgs.nil nvimNightly];
+              shellHook = ''
+                # Will open init.lua in nvim
+                function viewInitLua () {
+                  nvim --startuptime start -c exit
+                  cat start | grep init.lua | grep sourcing | awk '{print $5}' | xargs nvim
+                  rm start
+                }
+              '';
             };
             devStable = pkgs.mkShell {
               packages = [ pkgs.nil pkgs.hello nvimStable];

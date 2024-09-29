@@ -103,11 +103,11 @@
     lualine_y = [
       {
         __unkeyed-1 = "location";
-        cond = {
-          __raw = "hide(200)";
-        };
+        # cond = {
+        #   __raw = "hide(200)";
+        # };
       }
     ];
-    # lualine_z = [ cwd ];
+    lualine_z = [ "vim.fn.getcwd()" ];
   };
 }
