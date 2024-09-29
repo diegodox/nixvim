@@ -1,7 +1,7 @@
-{pkgs,  fcitx5nvim, ...}: let
+{pkgs,  plugin-fcitx5nvim, ...}: let
   plugin = pkgs.vimUtils.buildVimPlugin {
     name = "fcitx5";
-    src = fcitx5nvim;
+    src = plugin-fcitx5nvim;
   };
   config = ''
   require("fcitx5").setup({

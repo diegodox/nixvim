@@ -15,6 +15,10 @@
       url = "github:diegodox/fcitx5.nvim";
       flake = false;
     };
+    plugin-capture = {
+      url = "github:tyru/capture.vim";
+      flake = false;
+    };
   };
 
   nixConfig = {
@@ -51,8 +55,7 @@
             # You can use `extraSpecialArgs` to pass additional arguments to your module files
             extraSpecialArgs = {
               nightly = false;
-              fcitx5nvim = inputs.plugin-fcitx5nvim;
-              # inherit (inputs) foo;
+              inherit (inputs) plugin-capture plugin-fcitx5nvim;
             };
           };
 
