@@ -464,12 +464,29 @@
         "type": "github"
       }
     },
+    "plugin-fcitx5nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1684036158,
+        "narHash": "sha256-0u3Wi8VPpMlj2fMCBxFIyoVF7LXmDN6rgu36c3I4cnA=",
+        "owner": "diegodox",
+        "repo": "fcitx5.nvim",
+        "rev": "a5885ce78d1a46ae27bdd3da9aa97b02548c89b7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "diegodox",
+        "repo": "fcitx5.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs",
-        "nixvim": "nixvim"
+        "nixvim": "nixvim",
+        "plugin-fcitx5nvim": "plugin-fcitx5nvim"
       }
     },
     "systems": {

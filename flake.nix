@@ -10,6 +10,11 @@
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    plugin-fcitx5nvim = {
+      url = "github:diegodox/fcitx5.nvim";
+      flake = false;
+    };
   };
 
   nixConfig = {
@@ -46,11 +51,12 @@
             # You can use `extraSpecialArgs` to pass additional arguments to your module files
             extraSpecialArgs = {
               nightly = false;
+              fcitx5nvim = inputs.plugin-fcitx5nvim;
               # inherit (inputs) foo;
             };
           };
 
-          nvimNightly = nixvim'.makeNixvimWithModule (nixvimModule // { extraSpecialArgs.nightly = true; });
+          nvimNightly = nixvim'.makeNixvimWithModule (pkgs.lib.recursiveUpdate nixvimModule { extraSpecialArgs.nightly = true; });
           nvimStable = nixvim'.makeNixvimWithModule nixvimModule;
         in
         {
