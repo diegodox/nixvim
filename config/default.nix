@@ -17,6 +17,7 @@ in
     ./noice.nix
     ./telescope.nix
     ./whichkey.nix
+    ./fcitx5nvim.nix
   ] ++ nightly_module;
 
   wrapRc = true;
