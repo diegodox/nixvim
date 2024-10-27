@@ -124,5 +124,26 @@
       ];
       lualine_z = [ "vim.fn.getcwd()" ];
     };
+
+    plugins.lualine.settings.winbar = let
+      icon = { __raw = ''modules.icon''; };
+      filename = { __raw = ''modules.filename({path = 1})''; };
+    in
+    {
+      lualine_a = [ icon filename ];
+      lualine_x = [
+        { __unkeyed-1 = "encoding"; cond = { __raw = ''hide(150)''; }; }
+        { __unkeyed-1 = "fileformat"; cond = { __raw = ''hide(150)''; }; }
+        { __unkeyed-1 = "filetype"; cond = { __raw = ''hide(150)''; }; }
+        { __unkeyed-1 = "diff"; source = { __raw = ''vim.b.gitsigns_status_dict''; }; }
+        "diagnostics"
+      ];
+    };
+
+    plugins.lualine.settings.inactive_winbar.lualine_a = let
+      icon = { __raw = ''modules.icon''; };
+      filename = { __raw = ''modules.filename({path = 1})''; };
+    in
+    [ icon filename ];
   };
 }
