@@ -1,6 +1,16 @@
 {
   plugins.cmp.enable = true;
 
+  plugins.cmp.luaConfig.pre = ''
+  -- Set up cmp {{
+  do
+  '';
+
+  plugins.cmp.luaConfig.post = ''
+  end
+  -- }}
+  '';
+
   # sources
   plugins.cmp-path.enable = true;
   plugins.cmp-buffer.enable = true;

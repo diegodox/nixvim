@@ -4,6 +4,8 @@
   plugins.telescope.extensions.frecency.enable = true;
 
   plugins.telescope.luaConfig.pre = ''
+  -- Set up telescope {{
+  do
     local actions = require("telescope.actions")
 
     --- dynamic layout based on nvim window size
@@ -38,6 +40,11 @@
             })
         end
     end
+  '';
+
+  plugins.telescope.luaConfig.post = ''
+  end
+  -- }}
   '';
 
   plugins.telescope.settings.defaults = {
