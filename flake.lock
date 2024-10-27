@@ -496,6 +496,22 @@
         "type": "github"
       }
     },
+    "plugin-hlchunk": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727833913,
+        "narHash": "sha256-Rx5kpjfpiH9i/IvOXx+wEWSO4gdfmXdhULDxbcBJQAY=",
+        "owner": "shellRaining",
+        "repo": "hlchunk.nvim",
+        "rev": "ba6e2347177fec8ec6af4ae26d11a468c9e0ca72",
+        "type": "github"
+      },
+      "original": {
+        "owner": "shellRaining",
+        "repo": "hlchunk.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -503,7 +519,8 @@
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "plugin-capture": "plugin-capture",
-        "plugin-fcitx5nvim": "plugin-fcitx5nvim"
+        "plugin-fcitx5nvim": "plugin-fcitx5nvim",
+        "plugin-hlchunk": "plugin-hlchunk"
       }
     },
     "systems": {

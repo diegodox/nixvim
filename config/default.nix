@@ -18,6 +18,7 @@
     ./capture.nix
     ./statuscol.nix
     ./lazygit.nix
+    ./hlchunk.nix
   ];
 
   plugins.nvim-colorizer.enable = true;

@@ -19,6 +19,10 @@
       url = "github:tyru/capture.vim";
       flake = false;
     };
+    plugin-hlchunk = {
+      url = "github:shellRaining/hlchunk.nvim";
+      flake = false;
+    };
   };
 
   nixConfig = {
@@ -55,7 +59,7 @@
             # You can use `extraSpecialArgs` to pass additional arguments to your module files
             extraSpecialArgs = {
               nightly = false;
-              inherit (inputs) plugin-capture plugin-fcitx5nvim;
+              inherit (inputs) plugin-capture plugin-fcitx5nvim plugin-hlchunk;
             };
           };
 
