@@ -15,5 +15,9 @@
     watch_gitdir = {
       follow_files = true;
     };
+
+    diff_opts = {
+      ignore_whitespace_change = true;
+    };
   };
 }
