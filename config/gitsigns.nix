@@ -20,4 +20,12 @@
       ignore_whitespace_change = true;
     };
   };
+
+  keymaps = [
+    {
+      mode = "n";
+      key = "<leader>gh";
+      action = ":Gitsigns preview_hunk_inline<CR>";
+    }
+  ];
 }
