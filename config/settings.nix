@@ -42,6 +42,8 @@
     # window settings
     splitbelow = true;
     splitright = true;
+
+    foldlevel = 99;
   };
 
   globals.mapleader = " ";
