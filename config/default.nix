@@ -1,11 +1,8 @@
 # nixvimConfigSearch: https://nix-community.github.io/nixvim/search
-{nightly ? false, ...}:
-let
-  nightly_module = if nightly then [ ./nightly.nix ] else [];
-in
+{ nightly ? false, ...}:
 {
   # Import all your configuration modules here
-  imports = [
+  imports = [./nightly.nix ] ++ [
     ./settings.nix
     ./keymap.nix
   ] ++ [
@@ -19,13 +16,15 @@ in
     ./whichkey.nix
     ./fcitx5nvim.nix
     ./capture.nix
-  ] ++ nightly_module;
+  ];
 
   plugins.nvim-colorizer.enable = true;
   plugins.inc-rename.enable = true;
   plugins.undotree.enable = true;
   plugins.markdown-preview.enable = true;
   plugins.sandwich.enable = true;
+
+  nixvim.nightly.enable = nightly;
 
   wrapRc = true;
 }
