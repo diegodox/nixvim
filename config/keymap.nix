@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 let
   # Move visual line
   move-in-visualline = (map (k: {
@@ -111,20 +111,25 @@ let
     }) (lib.lists.zipLists before after);
 in
 {
-  keymaps = move-in-visualline
-  ++ continuous-indent
-  ++ no-arrow-keys
-  ++ half-scroll
-  ++ jump-errors
-  ++ jump-diagnotic
-  ++ [ easy-save ]
-  ++ resize
-  ++ func
-  ++ [
-    {
-      mode = "n";
-      key = "<leader>la";
-      action = "hello";
-    }
-  ];
+  options = {
+     nixvim.myDefaultKeymap.enable = lib.mkOption {
+       type = lib.types.bool;
+       default = true;
+       description = ''
+         Is enable my default key mapping?
+       '';
+     };
+  };
+
+  config = lib.mkIf config.nixvim.myDefaultKeymap.enable {
+    keymaps = move-in-visualline
+    ++ continuous-indent
+    ++ no-arrow-keys
+    ++ half-scroll
+    ++ jump-errors
+    ++ jump-diagnotic
+    ++ [ easy-save ]
+    ++ resize
+    ++ func;
+  };
 }
