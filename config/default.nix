@@ -16,6 +16,7 @@
     ./whichkey.nix
     ./fcitx5nvim.nix
     ./capture.nix
+    ./statuscol.nix
   ];
 
   plugins.nvim-colorizer.enable = true;
