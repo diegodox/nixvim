@@ -4,6 +4,7 @@
   plugins.cmp.luaConfig.pre = ''
   -- Set up cmp {{
   do
+    local luasnip = require('luasnip')
   '';
 
   plugins.cmp.luaConfig.post = ''
@@ -26,10 +27,11 @@
   ];
 
   # snippet
+  plugins.luasnip.enable = true;
   plugins.cmp_luasnip.enable = true;
   plugins.cmp.settings.snippet.expand = ''
     function(args)
-      require('luasnip').lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end
   '';
 
@@ -49,7 +51,6 @@
   plugins.cmp.settings.formatting.fields = [ "kind" "abbr" "menu" ];
 
   # mapping
-  plugins.cmp.settings.completion.autocomplete = [ "require('cmp.types').cmp.TriggerEvent.TextChanged" ];
   plugins.cmp.settings.mapping = {
     "<C-Up>" = "cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'})";
     "<C-Down>" = "cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'})";
@@ -89,6 +90,25 @@
     '';
   };
 
-  # plugins.cmp.settings.preselect = true;
+  plugins.cmp.cmdline= {
+    ":" = {
+      mapping = {
+        "<Tab>" = /* lua */ ''cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.confirm({ select = false })
+          else
+            fallback()
+          end
+        end, { "c" })
+        '';
+      };
+
+      sources = [
+        { name = "path"; }
+        { name = "cmdline"; }
+      ];
+    };
+  };
+
   # plugins.cmp.settings.experimental = { ghost_text = true; };
 }
