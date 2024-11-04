@@ -1,4 +1,4 @@
-{pkgs,  plugin-fcitx5nvim, ...}: let
+{pkgs, plugin-fcitx5nvim, ...}: let
   plugin = pkgs.vimUtils.buildVimPlugin {
     name = "fcitx5";
     src = plugin-fcitx5nvim;
