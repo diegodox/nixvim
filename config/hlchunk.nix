@@ -17,7 +17,7 @@ in
 
   config = lib.mkIf config.nixvim.hlchunk.enable {
     extraPlugins = [ plugin ];
-    extraConfigLua = ''
+    extraConfigLua = /* lua */ ''
     -- Set up hlchunk {{
     do
       require('hlchunk').setup({

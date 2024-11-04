@@ -3,7 +3,7 @@
 
   plugins.telescope.extensions.frecency.enable = true;
 
-  plugins.telescope.luaConfig.pre = ''
+  plugins.telescope.luaConfig.pre = /* lua */ ''
   -- Set up telescope {{
   do
     local actions = require("telescope.actions")
@@ -42,7 +42,7 @@
     end
   '';
 
-  plugins.telescope.luaConfig.post = ''
+  plugins.telescope.luaConfig.post = /* lua */ ''
   end
   -- }}
   '';

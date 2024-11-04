@@ -1,13 +1,13 @@
 {
   plugins.cmp.enable = true;
 
-  plugins.cmp.luaConfig.pre = ''
+  plugins.cmp.luaConfig.pre = /* lua */ ''
   -- Set up cmp {{
   do
     local luasnip = require('luasnip')
   '';
 
-  plugins.cmp.luaConfig.post = ''
+  plugins.cmp.luaConfig.post = /* lua */ ''
   end
   -- }}
   '';
@@ -29,7 +29,7 @@
   # snippet
   plugins.luasnip.enable = true;
   plugins.cmp_luasnip.enable = true;
-  plugins.cmp.settings.snippet.expand = ''
+  plugins.cmp.settings.snippet.expand = /* lua */ ''
     function(args)
       luasnip.lsp_expand(args.body)
     end
@@ -51,11 +51,12 @@
   plugins.cmp.settings.formatting.fields = [ "kind" "abbr" "menu" ];
 
   # mapping
-  plugins.cmp.settings.mapping = {
-    "<C-Up>" = "cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'})";
-    "<C-Down>" = "cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'})";
+  plugins.cmp.settings.mapping = /* lua */ {
+    "<C-Up>" = /* lua */ "cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'})";
+    "<C-Down>" = /* lua */ "cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'})";
 
-    "<Up>" = ''cmp.mapping(function(fallback)
+    "<Up>" = /* lua */ ''
+    cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       else
@@ -63,7 +64,7 @@
       end
     end, {'i', 'c'})
     '';
-    "<Down>" = ''
+    "<Down>" = /* lua */ ''
     cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -73,12 +74,13 @@
     end, {'i', 'c'})
     '';
 
-    "<C-Space>" = "cmp.mapping.complete()";
-    "<C-e>" = "cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() })";
+    "<C-Space>" = /* lua */ "cmp.mapping.complete()";
+    "<C-e>" = /* lua */ "cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() })";
 
-    "<CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })";
+    "<CR>" = /* lua */ "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })";
 
-    "<Tab>" = ''cmp.mapping(function(fallback)
+    "<Tab>" = /* lua */ ''
+    cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.confirm({ select = false })
       elseif luasnip.expand_or_jumpable() then
@@ -93,7 +95,8 @@
   plugins.cmp.cmdline= {
     ":" = {
       mapping = {
-        "<Tab>" = /* lua */ ''cmp.mapping(function(fallback)
+        "<Tab>" = /* lua */ ''
+        cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.confirm({ select = false })
           else

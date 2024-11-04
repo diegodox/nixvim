@@ -3,7 +3,7 @@
     name = "fcitx5";
     src = plugin-fcitx5nvim;
   };
-  config = ''
+  config = /* lua */ ''
   require("fcitx5").setup({
     ime_on_status = "2",
     ime_off_status = "1",

@@ -34,7 +34,7 @@
       ];
     };
 
-    plugins.lualine.luaConfig.pre = ''
+    plugins.lualine.luaConfig.pre = /* lua */ ''
     -- Set up lualine {{
     do
     function replace_empty(relpaced)
@@ -95,7 +95,7 @@
     }
     '';
 
-    plugins.lualine.luaConfig.post = ''
+    plugins.lualine.luaConfig.post = /* lua */ ''
     end
     -- }}
     '';

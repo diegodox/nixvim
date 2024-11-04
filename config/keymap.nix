@@ -35,7 +35,7 @@ let
   easy-save = {
     mode = "n";
     key = "<C-s>";
-    action.__raw = "function() vim.cmd(\"update\") end";
+    action.__raw = /*lua*/ "function() vim.cmd(\"update\") end";
     options.desc = "Previous Error";
   };
 
@@ -44,13 +44,13 @@ let
     {
       mode = "n";
       key = "[e";
-      action.__raw = "function() vim.diagnostic.goto_prev({severity = vim.diagnostic.severity.ERROR }) end";
+      action.__raw = /*lua*/ "function() vim.diagnostic.goto_prev({severity = vim.diagnostic.severity.ERROR }) end";
       options.desc = "Previous Error";
     }
     {
       mode = "n";
       key = "]e";
-      action.__raw = "function() vim.diagnostic.goto_next({severity = vim.diagnostic.severity.ERROR }) end";
+      action.__raw = /*lua*/ "function() vim.diagnostic.goto_next({severity = vim.diagnostic.severity.ERROR }) end";
       options.desc = "Next Error";
     }
   ];
@@ -60,13 +60,13 @@ let
     {
       mode = "n";
       key = "[w";
-      action.__raw = "vim.diagnostic.goto_prev";
+      action.__raw = /*lua*/ "vim.diagnostic.goto_prev";
       options.desc = "Previous Diagnostic";
     }
     {
       mode = "n";
       key = "]w";
-      action.__raw = "vim.diagnostic.goto_next";
+      action.__raw = /*lua*/ "vim.diagnostic.goto_next";
       options.desc = "Next Diagnostic";
     }
   ];
