@@ -20,6 +20,10 @@ jobs:
         run: |
           nix bundle --bundler github:DavHau/nix-portable -o nixvim-stable-bundle \
             .#stable --accept-flake-config
+
+      - name: Extract binary
+        run: |
+          ls nixvim-stable-bundle
           mv nixvim-stable-bundle/bin/nvim nixvim-stable
           chmod +x nixvim-stable
 
