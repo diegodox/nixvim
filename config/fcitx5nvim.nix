@@ -1,4 +1,4 @@
-{ pkgs, lib, plugin-fcitx5nvim, ...}: let
+{ pkgs, lib, config, plugin-fcitx5nvim, ...}: let
     plugin = pkgs.vimUtils.buildVimPlugin {
       name = "fcitx5";
       src = plugin-fcitx5nvim;
@@ -16,7 +16,7 @@ in
   };
 
   config = let
-    config = /* lua */ ''
+    config_str = /* lua */ ''
       -- Set up fcitx5.nvim {{
       require("fcitx5").setup({
         ime_on_status = "2",
@@ -28,7 +28,7 @@ in
     '';
   in lib.mkIf config.nixvim.fcitx5.enable {
     extraPlugins = [ plugin ];
-    extraConfigLua = config;
+    extraConfigLua = config_str;
   };
 }
 
