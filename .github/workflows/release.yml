@@ -20,13 +20,18 @@ jobs:
         run: |
           nix bundle --bundler github:DavHau/nix-portable -o nixvim-stable-bundle \
             .#stable --accept-flake-config
+          nix bundle --bundler github:DavHau/nix-portable -o nixvim-nightly-bundle \
+            .#nightly --accept-flake-config
 
       - name: Compress the bundle
         run: |
           tar -czvf nixvim-stable.tar.gz nixvim-stable-bundle/bin/nvim
+          tar -czvf nixvim-nightly.tar.gz nixvim-nightly-bundle/bin/nvim
 
       - name: Upload Release Asset
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: nixvim-stable.tar.gz
+          files: |
+            nixvim-stable.tar.gz
+            nixvim-nightly.tar.gz
