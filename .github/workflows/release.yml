@@ -21,15 +21,9 @@ jobs:
           nix bundle --bundler github:DavHau/nix-portable -o nixvim-stable-bundle \
             .#stable --accept-flake-config
 
-      - name: Extract binary
-        run: |
-          ls nixvim-stable-bundle
-          mv nixvim-stable-bundle/bin/nvim nixvim-stable
-          chmod +x nixvim-stable
-
       - name: Compress the bundle
         run: |
-          tar -czvf nixvim-stable.tar.gz nixvim-stable
+          tar -czvf nixvim-stable.tar.gz nixvim-stable-bundle/bin/nvim
 
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
