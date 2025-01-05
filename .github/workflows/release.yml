@@ -14,14 +14,11 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v3
 
-      - name: Download Nix Portable
-        run: |
-          curl -L https://github.com/DavHau/nix-portable/releases/latest/download/nix-portable-$(uname -m) > ./nix-portable
-          chmod +x nix-portable
+      - uses: cachix/install-nix-action@v27
 
       - name: Bundle the application
         run: |
-          ./nix-portable nix bundle --bundler github:DavHau/nix-portable -o nixvim-stable-bundle \
+          nix bundle --bundler github:DavHau/nix-portable -o nixvim-stable-bundle \
             .#stable --accept-flake-config
           mv nixvim-stable-bundle/bin/nvim nixvim-stable
           chmod +x nixvim-stable
