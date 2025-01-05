@@ -1,0 +1,39 @@
+name: Create Release with Nix Portable
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      - name: Download Nix Portable
+        run: |
+          curl -L https://github.com/DavHau/nix-portable/releases/latest/download/nix-portable-$(uname -m) > ./nix-portable
+          chmod +x nix-portable
+
+      - name: Bundle the application
+        run: |
+          ./nix-portable nix bundle --bundler github:DavHau/nix-portable -o nixvim-stable-bundle \
+            .#stable --accept-flake-config
+          mv nixvim-stable-bundle/bin/nvim nixvim-stable
+          chmod +x nixvim-stable
+
+      - name: Compress the bundle
+        run: |
+          tar -czvf nixvim-stable.tar.gz nixvim-stable
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: nixvim-stable.tar.gz
+          asset_name: nixvim-stable.tar.gz
+          content_type: application/gzip
