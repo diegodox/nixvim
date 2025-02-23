@@ -29,6 +29,7 @@
   config = lib.mkIf config.nixvim.treesitter.enable {
     plugins.treesitter.enable = true;
 
+    plugins.treesitter.folding = true;
     plugins.treesitter.settings.folding = config.nixvim.treesitter.folding;
     plugins.treesitter.settings.indent.enable = config.nixvim.treesitter.folding;
     plugins.treesitter.settings.highlight.enable = true;
