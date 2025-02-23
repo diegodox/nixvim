@@ -17,6 +17,7 @@
     ./fcitx5nvim.nix
     ./capture.nix
     ./hlchunk.nix
+    ./treesitter.nix
     ./rustaceanvim.nix
     ./snacks.nix
   ];
