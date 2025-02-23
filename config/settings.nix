@@ -1,7 +1,7 @@
 {
   opts = {
     title = true;
-    hidden = true; 
+    hidden = true;
     swapfile = false;
     encoding = "utf-8";
     fileencoding = "utf-8";
