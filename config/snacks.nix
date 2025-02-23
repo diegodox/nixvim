@@ -12,6 +12,15 @@
 
   config = {
     plugins.snacks.enable = true;
+
+    # TODO: click to fold is not working
+    plugins.snacks.settings.statuscolumn = {
+      enable = true;
+      left = ["mark" "sign"];
+      right = ["fold" "git"];
+      folds = { open = true; };
+    };
+
     plugins.snacks.settings.lazygit = {
       enable = config.nixvim.lazygit.enable;
     };

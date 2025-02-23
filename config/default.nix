@@ -16,10 +16,9 @@
     ./whichkey.nix
     ./fcitx5nvim.nix
     ./capture.nix
-    ./statuscol.nix
-    ./lazygit.nix
     ./hlchunk.nix
     ./rustaceanvim.nix
+    ./snacks.nix
   ];
 
   plugins.colorizer.enable = true;
