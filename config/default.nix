@@ -22,7 +22,7 @@
     ./rustaceanvim.nix
   ];
 
-  plugins.nvim-colorizer.enable = true;
+  plugins.colorizer.enable = true;
   plugins.inc-rename.enable = true;
   plugins.undotree.enable = true;
   plugins.markdown-preview.enable = true;
