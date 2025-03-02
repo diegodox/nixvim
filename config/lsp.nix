@@ -25,5 +25,6 @@
   plugins.lsp.servers.nil_ls.enable = true;
   plugins.lsp.servers.nil_ls.autostart = true;
 
-  plugins.lsp.servers.pyright.enable = true;
+  plugins.lsp.servers.basedpyright.enable = true;
+  plugins.lsp.servers.ruff.enable = true;
 }
