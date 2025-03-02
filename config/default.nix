@@ -27,8 +27,12 @@
   plugins.undotree.enable = true;
   plugins.markdown-preview.enable = true;
   plugins.sandwich.enable = true;
+  plugins.trouble.enable = true;
+  plugins.nvim-ufo.enable = true;
 
   nixvim.nightly.enable = nightly;
 
   wrapRc = true;
+
+  clipboard = { register = "unnamedplus"; };
 }
