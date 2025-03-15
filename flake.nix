@@ -73,9 +73,9 @@
               shellHook = ''
                 # Will open init.lua in nvim
                 function viewInitLua () {
-                  nvim --startuptime start -c exit
-                  cat start | grep init.lua | grep sourcing | awk '{print $5}' | xargs nvim
-                  rm start
+                  nvim --startuptime /tmp/nvim_start -c exit
+                  cat /tmp/nvim_start | grep init.lua | grep sourcing | awk '{print $5}' | xargs nvim
+                  rm /tmp/nvim_start
                 }
               '';
             };
