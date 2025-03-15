@@ -29,6 +29,7 @@
   plugins.sandwich.enable = true;
   plugins.trouble.enable = true;
   plugins.nvim-ufo.enable = true;
+  plugins.glance.enable = true;
 
   nixvim.nightly.enable = nightly;
 
