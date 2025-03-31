@@ -1,8 +1,8 @@
 { pkgs, lib, config, plugin-fcitx5nvim, ...}: let
-    plugin = pkgs.vimUtils.buildVimPlugin {
-      name = "fcitx5";
-      src = plugin-fcitx5nvim;
-    };
+  plugin = pkgs.vimUtils.buildVimPlugin {
+    name = "fcitx5";
+    src = plugin-fcitx5nvim;
+  };
 in
 {
   options = {
