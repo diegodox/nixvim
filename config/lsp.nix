@@ -27,4 +27,5 @@
 
   plugins.lsp.servers.basedpyright.enable = true;
   plugins.lsp.servers.ruff.enable = true;
+  plugins.lsp.servers.lua_ls.enable = true;
 }
