@@ -7,7 +7,6 @@
     ./keymap.nix
   ] ++ [
     ./lsp.nix
-    ./cmp.nix
     ./lualine.nix
     ./tokyonight.nix
     ./gitsigns.nix
@@ -20,6 +19,7 @@
     ./treesitter.nix
     ./rustaceanvim.nix
     ./snacks.nix
+    ./completion
   ];
 
   plugins.colorizer.enable = true;
