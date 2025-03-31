@@ -1,5 +1,5 @@
 # nixvimConfigSearch: https://nix-community.github.io/nixvim/search
-{ nightly ? false, ...}:
+{ nightly ? false,... }:
 {
   # Import all your configuration modules here
   imports = [./nightly.nix ] ++ [
@@ -22,19 +22,21 @@
     ./completion
   ];
 
-  plugins.colorizer.enable = true;
-  plugins.inc-rename.enable = true;
-  plugins.undotree.enable = true;
-  plugins.markdown-preview.enable = true;
-  plugins.sandwich.enable = true;
-  plugins.trouble.enable = true;
-  plugins.nvim-ufo.enable = true;
-  plugins.guess-indent.enable = true;
-  plugins.glance.enable = true;
+  config = {
+    plugins.colorizer.enable = true;
+    plugins.inc-rename.enable = true;
+    plugins.undotree.enable = true;
+    plugins.markdown-preview.enable = true;
+    plugins.sandwich.enable = true;
+    plugins.trouble.enable = true;
+    plugins.nvim-ufo.enable = true;
+    plugins.guess-indent.enable = true;
+    plugins.glance.enable = true;
 
-  nixvim.nightly.enable = nightly;
+    nixvim.nightly.enable = nightly;
 
-  wrapRc = true;
+    wrapRc = true;
 
-  clipboard = { register = "unnamedplus"; };
+    # clipboard = { register = "unnamedplus"; };
+  };
 }
