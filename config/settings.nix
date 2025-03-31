@@ -44,6 +44,8 @@
     splitright = true;
 
     foldlevel = 99;
+
+    winborder = "rounded";
   };
 
   globals.mapleader = " ";

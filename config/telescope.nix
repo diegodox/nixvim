@@ -6,6 +6,20 @@
   plugins.telescope.luaConfig.pre = /* lua */ ''
   -- Set up telescope {{
   do
+    --- workaround for nvim 0.11 winborder
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "TelescopeFindPre",
+      callback = function()
+        vim.opt_local.winborder = "none"
+        vim.api.nvim_create_autocmd("WinLeave", {
+          once = true,
+          callback = function()
+            vim.opt_local.winborder = "rounded"
+          end,
+        })
+      end,
+    })
+
     local actions = require("telescope.actions")
 
     --- dynamic layout based on nvim window size
