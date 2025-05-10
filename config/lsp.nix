@@ -3,6 +3,14 @@
   plugins.lsp.enable = true;
   plugins.lsp.inlayHints = true;
 
+  diagnostic.settings = {
+    virtual_lines = {
+      current_line = true;
+    };
+    virtual_text = false;
+    signs = true;
+  };
+
   plugins.lsp.onAttach = /* lua */''
     if client.supports_method("textDocument/formatting") then
       vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
