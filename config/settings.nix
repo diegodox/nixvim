@@ -45,7 +45,7 @@
 
     foldlevel = 99;
 
-    winborder = "rounded";
+    # winborder = "rounded";
   };
 
   globals.mapleader = " ";
