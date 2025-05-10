@@ -13,6 +13,7 @@
     };
     nixd = {
       url = "github:nix-community/nixd";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
 
