@@ -27,12 +27,6 @@
   plugins.lsp.servers.ruff.enable = true;
   plugins.lsp.servers.lua_ls.enable = true;
   plugins.lsp.servers.clangd.enable = true;
-  plugins.lsp.servers.nixd = {
-    enable = true;
-    package = nixd;
-    settings = {
-      formatting.command = [ "alejandra" ];
-  };
   extraPackages = [
     nixd.packages.${system}.nixd
     pkgs.alejandra
