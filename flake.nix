@@ -13,7 +13,6 @@
     };
     nixd = {
       url = "github:nix-community/nixd";
-      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
 
@@ -66,7 +65,8 @@
             # You can use `extraSpecialArgs` to pass additional arguments to your module files
             extraSpecialArgs = {
               nightly = false;
-              inherit (inputs) plugin-capture plugin-fcitx5nvim plugin-hlchunk;
+              inherit system;
+              inherit (inputs) nixd plugin-capture plugin-fcitx5nvim plugin-hlchunk;
             };
           };
 
